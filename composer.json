@@ -2,12 +2,6 @@
     "name": "riskio/specification",
     "description": "Implementation of the specification pattern in PHP",
     "homepage": "https://github.com/RiskioFr/Specification",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://packages.riskio.fr"
-        }
-    ],
     "require": {
         "php": "^7.0"
     },
