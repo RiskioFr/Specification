@@ -5,7 +5,7 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://packages.riskio.fr"
+            "url": "https://packages.riskio.fr"
         }
     ],
     "require": {
