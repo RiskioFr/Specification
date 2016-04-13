@@ -8,4 +8,4 @@ The Riskio Specification library is an implementation of the [Specification Patt
 Requirements
 ------------
 
-* PHP 5.5 or higher
+* PHP 7.0 or higher
