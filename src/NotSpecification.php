@@ -1,11 +1,10 @@
-<?php
-namespace Riskio\Specification;
+<?php namespace Riskio\Specification;
 
-class NotSpecification implements SpecificationInterface
+class NotSpecification implements Specification
 {
     protected $specification;
 
-    public function __construct(SpecificationInterface $specification)
+    public function __construct(Specification $specification)
     {
         $this->specification = $specification;
     }

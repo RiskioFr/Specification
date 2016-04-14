@@ -1,37 +1,27 @@
-<?php
-namespace Riskio\SpecificationTest;
+<?php namespace Riskio\Specification;
 
-use Riskio\Specification\NotSpecification;
-use Riskio\SpecificationTest\Fixtures\NotSatisfiedSpecification;
-use Riskio\SpecificationTest\Fixtures\SatisfiedSpecification;
+use Riskio\Specification\Fixtures\SpecificationReturning;
 
 class NotSpecificationTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @test
-     */
-    public function isSatisfiedBy_GivenSpecificationsSatisfied_ShouldReturnFalse()
+    function notTruthTable()
     {
-        $spec = new NotSpecification(
-            new SatisfiedSpecification()
-        );
-
-        $isSatisfied = $spec->isSatisfiedBy('foo');
-
-        $this->assertThat($isSatisfied, $this->equalTo(false));
+        return [
+            [true, false],
+            [false, true]
+        ];
     }
 
     /**
      * @test
+     * @dataProvider notTruthTable
      */
-    public function isSatisfiedBy_GivenSpecificationNotSatisfied_ShouldReturnFalse()
+    function it_negates_composed_specification(bool $isSatisfied, bool $result)
     {
-        $spec = new NotSpecification(
-            new NotSatisfiedSpecification()
-        );
+        $spec = new NotSpecification(new SpecificationReturning($isSatisfied));
 
         $isSatisfied = $spec->isSatisfiedBy('foo');
 
-        $this->assertThat($isSatisfied, $this->equalTo(true));
+        assertThat($isSatisfied, equalTo($result));
     }
 }
