@@ -1,12 +1,12 @@
 {
     "name": "riskio/specification",
-    "description": "Implementation of the specification pattern in PHP",
+    "description": "PHP implementation of the specification pattern",
     "homepage": "https://github.com/RiskioFr/Specification",
     "require": {
-        "php": "^7.0"
+        "php": "^7"
     },
     "require-dev": {
-        "phpunit/phpunit": "~5.3"
+        "phpunit/phpunit": "^5"
     },
     "autoload": {
         "psr-4": {
@@ -15,7 +15,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Riskio\\SpecificationTest\\": "tests/"
-        }
+            "Riskio\\Specification\\": "tests/"
+        },
+        "files": ["vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"]
     }
 }

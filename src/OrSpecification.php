@@ -1,20 +1,9 @@
-<?php
-namespace Riskio\Specification;
+<?php namespace Riskio\Specification;
 
-class OrSpecification extends CompositeSpecification
+class OrSpecification extends BinarySpecification
 {
-    protected $left;
-
-    protected $right;
-
-    public function __construct(SpecificationInterface $left, SpecificationInterface $right)
+    function __construct(Specification $left, Specification $right)
     {
-        $this->left  = $left;
-        $this->right = $right;
-    }
-
-    public function isSatisfiedBy($object) : bool
-    {
-        return $this->left->isSatisfiedBy($object) || $this->right->isSatisfiedBy($object);
+        parent::__construct($left, $right, new Disjonctor);
     }
 }
