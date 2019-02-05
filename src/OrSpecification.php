@@ -3,18 +3,21 @@ namespace Riskio\Specification;
 
 class OrSpecification extends CompositeSpecification
 {
-    protected $left;
+    protected $specifications;
 
-    protected $right;
-
-    public function __construct(SpecificationInterface $left, SpecificationInterface $right)
+    public function __construct(SpecificationInterface ...$specifications)
     {
-        $this->left  = $left;
-        $this->right = $right;
+        $this->specifications = $specifications;
     }
 
     public function isSatisfiedBy($object) : bool
     {
-        return $this->left->isSatisfiedBy($object) || $this->right->isSatisfiedBy($object);
+        foreach ($this->specifications as $specification) {
+            if ($specification->isSatisfiedBy($object)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -29,7 +29,8 @@ class AndSpecificationTest extends \PHPUnit_Framework_TestCase
     {
         $spec = new AndSpecification(
             new SatisfiedSpecification(),
-            new NotSatisfiedSpecification()
+            new NotSatisfiedSpecification(),
+            new SatisfiedSpecification()
         );
 
         $isSatisfied = $spec->isSatisfiedBy('foo');
