@@ -1,16 +1,17 @@
 <?php
 namespace Riskio\SpecificationTest;
 
+use PHPUnit\Framework\TestCase;
 use Riskio\Specification\AndSpecification;
 use Riskio\SpecificationTest\Fixtures\NotSatisfiedSpecification;
 use Riskio\SpecificationTest\Fixtures\SatisfiedSpecification;
 
-class AndSpecificationTest extends \PHPUnit_Framework_TestCase
+class AndSpecificationTest extends TestCase
 {
     /**
      * @test
      */
-    public function isSatisfiedBy_GivenBothSpecificationsSatisfied_ShouldReturnTrue()
+    public function isSatisfiedBy_GivenBothSpecificationsSatisfied_ShouldReturnTrue(): void
     {
         $spec = new AndSpecification(
             new SatisfiedSpecification(),
@@ -25,7 +26,7 @@ class AndSpecificationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function isSatisfiedBy_GivenOneSpecificationNotSatisfied_ShouldReturnFalse()
+    public function isSatisfiedBy_GivenOneSpecificationNotSatisfied_ShouldReturnFalse(): void
     {
         $spec = new AndSpecification(
             new SatisfiedSpecification(),
@@ -41,7 +42,7 @@ class AndSpecificationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function isSatisfiedBy_GivenBothSpecificationsNotSatisfied_ShouldReturnFalse()
+    public function isSatisfiedBy_GivenBothSpecificationsNotSatisfied_ShouldReturnFalse(): void
     {
         $spec = new AndSpecification(
             new NotSatisfiedSpecification(),

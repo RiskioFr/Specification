@@ -1,16 +1,16 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Riskio\Specification;
 
 class NotSpecification implements SpecificationInterface
 {
-    protected $specification;
-
-    public function __construct(SpecificationInterface $specification)
+    public function __construct(protected readonly SpecificationInterface $specification)
     {
-        $this->specification = $specification;
     }
 
-    public function isSatisfiedBy($object) : bool
+    public function isSatisfiedBy(mixed $object): bool
     {
         return !$this->specification->isSatisfiedBy($object);
     }

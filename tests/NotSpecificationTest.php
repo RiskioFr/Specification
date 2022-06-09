@@ -1,16 +1,17 @@
 <?php
 namespace Riskio\SpecificationTest;
 
+use PHPUnit\Framework\TestCase;
 use Riskio\Specification\NotSpecification;
 use Riskio\SpecificationTest\Fixtures\NotSatisfiedSpecification;
 use Riskio\SpecificationTest\Fixtures\SatisfiedSpecification;
 
-class NotSpecificationTest extends \PHPUnit_Framework_TestCase
+class NotSpecificationTest extends TestCase
 {
     /**
      * @test
      */
-    public function isSatisfiedBy_GivenSpecificationsSatisfied_ShouldReturnFalse()
+    public function isSatisfiedBy_GivenSpecificationsSatisfied_ShouldReturnFalse(): void
     {
         $spec = new NotSpecification(
             new SatisfiedSpecification()
@@ -24,7 +25,7 @@ class NotSpecificationTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function isSatisfiedBy_GivenSpecificationNotSatisfied_ShouldReturnFalse()
+    public function isSatisfiedBy_GivenSpecificationNotSatisfied_ShouldReturnFalse(): void
     {
         $spec = new NotSpecification(
             new NotSatisfiedSpecification()

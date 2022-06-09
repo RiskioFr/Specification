@@ -5,7 +5,7 @@ use Riskio\Specification\SpecificationInterface;
 
 class NotSatisfiedSpecification implements SpecificationInterface
 {
-    public function isSatisfiedBy($object) : bool
+    public function isSatisfiedBy(mixed $object): bool
     {
         return false;
     }
