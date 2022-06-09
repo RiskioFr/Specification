@@ -3,11 +3,8 @@ namespace Riskio\Specification;
 
 class NotSpecification implements SpecificationInterface
 {
-    protected $specification;
-
-    public function __construct(SpecificationInterface $specification)
+    public function __construct(private readonly SpecificationInterface $specification)
     {
-        $this->specification = $specification;
     }
 
     public function isSatisfiedBy($object) : bool

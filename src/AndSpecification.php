@@ -3,7 +3,7 @@ namespace Riskio\Specification;
 
 class AndSpecification extends CompositeSpecification
 {
-    protected $specifications;
+    private array $specifications;
 
     public function __construct(SpecificationInterface ...$specifications)
     {

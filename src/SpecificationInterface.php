@@ -3,5 +3,5 @@ namespace Riskio\Specification;
 
 interface SpecificationInterface
 {
-    public function isSatisfiedBy($object) : bool;
+    public function isSatisfiedBy(mixed $object) : bool;
 }
